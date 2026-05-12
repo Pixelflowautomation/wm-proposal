@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Proposal — Shawl Brand · White Mirage Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#08080f;
+  --bg2:#0f0f1a;
+  --card:#13131f;
+  --card2:#1a1a2a;
+  --gold:#c9a84c;
+  --gold2:#e8c97a;
+  --text:#f0ead8;
+  --muted:#7a7060;
+  --muted2:#a09080;
+  --border:rgba(201,168,76,0.12);
+  --border2:rgba(201,168,76,0.25);
+  --pad:clamp(1.5rem,5vw,5rem);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* cursor only on non-touch */
+@media(hover:hover){
+  html,body{cursor:none}
+  #cursor,#cursor-ring,#cursor-tip{display:block}
+}
+@media(hover:none){
+  #cursor,#cursor-ring,#cursor-tip{display:none}
+}
+
+#cursor{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s}
+#cursor-ring{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid rgba(201,168,76,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s}
+#cursor-tip{position:fixed;top:0;left:0;background:var(--gold);color:#08080f;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:.05em;padding:5px 12px;border-radius:2px;pointer-events:none;z-index:9997;opacity:0;white-space:nowrap;transform:translate(16px,-50%);transition:opacity .2s;max-width:220px;white-space:normal;line-height:1.4}
+body.cursor-hover #cursor{width:14px;height:14px;background:var(--gold2)}
+body.cursor-hover #cursor-ring{width:50px;height:50px;border-color:var(--gold)}
+body.cursor-tip-show #cursor-tip{opacity:1}
+
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");opacity:.4;pointer-events:none;z-index:1}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* ── HERO ── */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:var(--pad);padding-top:5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(201,168,76,.06) 0%,transparent 70%)}
+.hero-line{position:absolute;top:0;left:var(--pad);width:1px;height:100%;background:linear-gradient(to bottom,transparent,var(--border2),transparent)}
+.hero-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;opacity:0;animation:fadeUp .8s .2s forwards}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,8vw,8rem);font-weight:300;line-height:.95;letter-spacing:-.02em;opacity:0;animation:fadeUp .9s .4s forwards}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{margin-top:1.5rem;font-size:clamp(12px,1.5vw,14px);color:var(--muted2);letter-spacing:.04em;opacity:0;animation:fadeUp .8s .7s forwards;max-width:500px;line-height:1.8}
+.hero-meta{margin-top:3rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1.5rem;opacity:0;animation:fadeUp .8s .9s forwards}
+.hero-meta-item .label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.hero-meta-item .val{font-size:13px;color:var(--text)}
+.hero-scroll{position:absolute;bottom:2rem;right:var(--pad);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl;opacity:0;animation:fadeIn 1s 1.4s forwards;display:flex;align-items:center;gap:10px}
+.hero-scroll::before{content:'';display:block;width:1px;height:40px;background:var(--border2)}
+
+/* ── SECTIONS ── */
+.section{padding:var(--pad);border-bottom:1px solid var(--border);position:relative}
+.section-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:12px}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:300;line-height:1.1;margin-bottom:.5rem}
+.section-desc{font-size:13.5px;color:var(--muted2);max-width:600px;line-height:1.8;margin-bottom:2.5rem}
+
+/* ── SCOPE ── */
+.scope-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+.scope-item{background:var(--bg);padding:1.25rem;transition:background .3s}
+.scope-item:hover{background:var(--card)}
+.scope-item .s-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.scope-item .s-val{font-size:13px;color:var(--text);line-height:1.5}
+
+/* ── TABS ── */
+.tab-nav{display:flex;margin-bottom:2.5rem;border-bottom:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tab-nav::-webkit-scrollbar{height:2px}
+.tab-nav::-webkit-scrollbar-thumb{background:var(--border2)}
+.tab-nav button{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:.875rem 1.25rem;background:none;border:none;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .3s;white-space:nowrap;flex-shrink:0}
+.tab-nav button.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-nav button:hover{color:var(--text)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* ── SPLIT LAYOUT ── */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.split-card{background:var(--card);padding:2rem}
+.split-card.dark{background:var(--card2)}
+.split-card.featured{background:var(--card2)}
+.split-card.featured::before{content:'RECOMMENDED';position:absolute;top:0;right:0;background:var(--gold);color:#08080f;font-size:9px;font-weight:500;letter-spacing:.15em;padding:5px 14px}
+.split-card{position:relative}
+
+/* ── PKG CARDS ── */
+.pkg-name{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.pkg-price{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3rem);font-weight:300;color:var(--text);line-height:1}
+.pkg-price sup{font-size:1rem;vertical-align:super;color:var(--muted2)}
+.pkg-price .gst{font-size:.85rem;color:var(--muted);font-family:'Jost',sans-serif;font-weight:300}
+.pkg-saving{font-size:11px;color:var(--gold);margin:.75rem 0 1.25rem;min-height:16px}
+.pkg-desc{font-size:12.5px;color:var(--muted2);line-height:1.7;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.pkg-items{list-style:none}
+.pkg-items li{font-size:12.5px;color:var(--text);padding:6px 0;display:flex;gap:10px;align-items:flex-start;border-bottom:1px solid rgba(255,255,255,.04)}
+.pkg-items li:last-child{border-bottom:none}
+.pkg-items li::before{content:'';width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:7px}
+.deliverables{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.del-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold)}
+.del-label{font-size:11px;color:var(--muted)}
+.gold-line{width:40px;height:1px;background:var(--gold);margin-bottom:1.5rem}
+.insight{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:300;line-height:1.6;color:var(--text);margin-bottom:1rem}
+.best-for{font-size:12px;color:var(--muted)}
+
+/* ── BOX ── */
+.box-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.box-card{background:var(--card);padding:2.5rem 1.5rem;text-align:center;transition:background .3s;position:relative}
+.box-card:hover{background:var(--card2)}
+.box-card.featured::after{content:'';position:absolute;inset:0;border:1px solid var(--gold);pointer-events:none}
+.box-type{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
+.box-price{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4vw,3.5rem);font-weight:300;color:var(--text);line-height:1;margin-bottom:4px}
+.box-gst{font-size:11px;color:var(--muted);margin-bottom:1.5rem}
+.box-divider{width:30px;height:1px;background:var(--border2);margin:1.5rem auto}
+.box-detail{font-size:12px;color:var(--muted2);line-height:2}
+.box-bundle{background:var(--card2);border-top:1px solid var(--border);padding:2rem;text-align:center;margin-top:1px}
+.box-bundle p{font-size:13px;color:var(--muted2);margin-bottom:8px}
+.box-bundle strong{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;color:var(--gold)}
+
+/* ── RETAINER ── */
+.ret-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
+.ret-card{background:var(--card);padding:2rem;transition:background .3s;position:relative}
+.ret-card:hover{background:var(--card2)}
+.ret-card.featured{background:var(--card2)}
+.ret-card.featured::before{content:'BEST VALUE';position:absolute;top:0;right:0;background:var(--gold);color:#08080f;font-size:9px;font-weight:500;letter-spacing:.15em;padding:5px 14px}
+.ret-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;margin-bottom:4px}
+.ret-sub{font-size:11px;color:var(--muted);letter-spacing:.05em;margin-bottom:1.5rem}
+.ret-price{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,2.5vw,2.5rem);font-weight:300;color:var(--text);line-height:1;margin-bottom:4px}
+.ret-price small{font-size:.9rem;color:var(--muted);font-family:'Jost',sans-serif;font-weight:300}
+.ret-note{font-size:11px;color:var(--gold);margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.ret-items{list-style:none}
+.ret-items li{font-size:12px;color:var(--text);padding:5px 0;display:flex;gap:8px;align-items:flex-start;border-bottom:1px solid rgba(255,255,255,.04)}
+.ret-items li:last-child{border-bottom:none}
+.ret-items li::before{content:'→';color:var(--gold);flex-shrink:0;font-size:10px;margin-top:3px}
+
+/* ── DIGITAL ── */
+.dig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--border)}
+.dig-card{background:var(--card);padding:2rem;transition:background .3s;position:relative}
+.dig-card:hover{background:var(--card2)}
+.dig-card.featured::before{content:'RECOMMENDED';position:absolute;top:0;right:0;background:var(--gold);color:#08080f;font-size:9px;font-weight:500;letter-spacing:.15em;padding:5px 14px}
+
+/* ── TERMS ── */
+.terms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--border)}
+.term-item{background:var(--card);padding:1.25rem;transition:background .2s}
+.term-item:hover{background:var(--card2)}
+.term-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.term-val{font-size:13px;color:var(--text)}
+
+/* ── NOTE ── */
+.note{border-left:2px solid var(--gold);padding:1rem 1.5rem;background:rgba(201,168,76,.04);font-size:12.5px;color:var(--muted2);line-height:1.8;margin:2rem 0}
+
+/* ── SAVING BOX ── */
+.saving-box{padding:1.5rem;background:rgba(201,168,76,.06);border:1px solid var(--border2);margin-top:1.5rem}
+.saving-box .sb-title{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.saving-box .sb-line{font-size:12px;color:var(--muted2);line-height:2.2}
+
+/* ── FOOTER ── */
+footer{padding:var(--pad);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem;border-top:1px solid var(--border)}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--gold)}
+.footer-copy{font-size:11px;color:var(--muted);letter-spacing:.04em;line-height:1.9}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ── TABLET ── */
+@media(max-width:1024px){
+  .ret-grid{grid-template-columns:1fr}
+  .box-grid{grid-template-columns:1fr 1fr}
+}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  :root{--pad:1.5rem}
+  .ret-grid{grid-template-columns:1fr}
+  .hero{min-height:100svh;padding-bottom:3rem}
+  .hero-scroll{display:none}
+  .hero-line{display:none}
+
+  /* all split layouts become single column */
+  .split{grid-template-columns:1fr}
+  [style*='grid-template-columns:1fr 1fr']{grid-template-columns:1fr !important}
+  .split-card{border-right:none !important;border-left:none !important}
+
+  /* retainer and box stack */
+  .ret-grid{grid-template-columns:1fr}
+  .box-grid{grid-template-columns:1fr}
+
+  /* tab nav scrollable, smaller text */
+  .tab-nav button{font-size:10px;padding:.75rem .875rem}
+
+  /* no huge package price on small screens */
+  .pkg-price{font-size:2rem}
+  .ret-price{font-size:1.8rem}
+
+  /* footer stacks */
+  footer{flex-direction:column;align-items:flex-start}
+
+  /* scope grid min smaller */
+  .scope-grid{grid-template-columns:1fr 1fr}
+
+  /* terms grid */
+  .terms-grid{grid-template-columns:1fr 1fr}
+
+  /* dig grid single */
+  .dig-grid{grid-template-columns:1fr}
+
+  /* section title smaller on narrow */
+  .section-title{font-size:2rem}
+}
+
+@media(max-width:480px){
+  .scope-grid{grid-template-columns:1fr}
+  .terms-grid{grid-template-columns:1fr}
+  .deliverables{grid-template-columns:repeat(4,1fr)}
+  .hero h1{font-size:2.6rem}
+  .hero-meta{grid-template-columns:1fr 1fr}
+}
+
+/* ── WHY US ── */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border)}
+.why-item{background:var(--card);padding:1.75rem;transition:background .3s}
+.why-item:hover{background:var(--card2)}
+.why-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--border2);line-height:1;margin-bottom:.75rem}
+.why-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:.5rem;letter-spacing:.03em}
+.why-desc{font-size:12px;color:var(--muted2);line-height:1.7}
+
+/* ── WHERE TO START ── */
+.start-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);margin-bottom:1px}
+.start-card{background:var(--card);padding:1.75rem;transition:background .3s;cursor:default}
+.start-card:hover{background:var(--card2)}
+.start-q{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.start-a{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--gold);margin-bottom:.5rem;line-height:1.3}
+.start-why{font-size:12px;color:var(--muted2);line-height:1.6}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--border2)}
+.tl-item{position:relative;margin-bottom:2rem}
+.tl-item:last-child{margin-bottom:0}
+.tl-dot{position:absolute;left:-2rem;top:5px;width:8px;height:8px;background:var(--gold);border-radius:50%;transform:translateX(-3.5px)}
+.tl-week{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.tl-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px}
+.tl-desc{font-size:12px;color:var(--muted2);line-height:1.6}
+.tl-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+@media(max-width:600px){.tl-grid{grid-template-columns:1fr}}
+
+/* ── ADD-ONS ── */
+.addon-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border)}
+.addon-card{background:var(--card);padding:1.5rem;transition:background .3s;position:relative}
+.addon-card:hover{background:var(--card2)}
+.addon-tag{display:inline-block;font-size:9px;letter-spacing:.15em;text-transform:uppercase;background:rgba(201,168,76,.12);color:var(--gold);padding:3px 10px;border-radius:2px;margin-bottom:.875rem}
+.addon-name{font-size:13px;font-weight:500;color:var(--text);margin-bottom:.5rem}
+.addon-desc{font-size:12px;color:var(--muted2);line-height:1.6;margin-bottom:.875rem}
+.addon-price{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--gold)}
+.addon-price small{font-size:.9rem;color:var(--muted);font-family:'Jost',sans-serif;font-weight:300}
+
+/* ── CTA ── */
+.cta-section{padding:var(--pad);background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center}
+.cta-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:300;line-height:1.1;margin-bottom:1rem}
+.cta-section h2 em{font-style:italic;color:var(--gold)}
+.cta-section p{font-size:13.5px;color:var(--muted2);max-width:480px;margin:0 auto 2.5rem;line-height:1.8}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;padding:.875rem 2rem;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--gold);color:var(--gold);background:transparent;text-decoration:none;transition:all .3s;cursor:pointer}
+.cta-btn:hover{background:var(--gold);color:#08080f}
+.cta-btn.primary{background:var(--gold);color:#08080f}
+.cta-btn.primary:hover{background:var(--gold2)}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="cursor-tip"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+  <div class="hero-tag">Creative Services Proposal · 2025</div>
+  <h1>Crafting a<br><em>Visual Identity</em><br>for Your Shawl Brand</h1>
+  <p class="hero-sub">Brand Identity · Photography · Video · Website · Paid Campaigns — Domestic &amp; Export Markets, Gifting Focus</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><div class="label">Prepared by</div><div class="val">White Mirage Studio</div></div>
+    <div class="hero-meta-item"><div class="label">Markets</div><div class="val">India + International</div></div>
+    <div class="hero-meta-item"><div class="label">Benchmark</div><div class="val">Competitive with Pashtush</div></div>
+    <div class="hero-meta-item"><div class="label">Validity</div><div class="val">30 Days from Issue</div></div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- WHY US -->
+<section class="section reveal">
+  <div class="section-label" data-tip="Hover over each point to understand why it matters for your brand">Why White Mirage Studio</div>
+  <h2 class="section-title">Built for brands<br>that sell through <em style="font-style:italic;color:var(--gold)">gifting</em></h2>
+  <p class="section-desc">We don't just shoot products. We build the complete visual ecosystem your brand needs to win on Amazon, convert on social, and look unmistakably premium.</p>
+  <div class="why-grid">
+    <div class="why-item" data-tip="We focus on premium brand aesthetics — making sure your brand looks as good as the product you're selling">
+      <div class="why-num">01</div>
+      <div class="why-title">Premium brand thinking</div>
+      <div class="why-desc">We build visual identities for brands that want to be taken seriously. Our focus is on making your brand look and feel premium — so the first impression earns the trust that converts a browser into a buyer.</div>
+    </div>
+    <div class="why-item" data-tip="No outsourcing — everything from brief to delivery is us">
+      <div class="why-num">02</div>
+      <div class="why-title">Fully in-house production</div>
+      <div class="why-desc">Creative direction, visual production, post-processing, and delivery — all under one roof. No middlemen, no briefing loss, no delays.</div>
+    </div>
+    <div class="why-item" data-tip="Images delivered in every format — website, social, Amazon, print — without asking twice">
+      <div class="why-num">03</div>
+      <div class="why-title">Marketplace-ready by default</div>
+      <div class="why-desc">Your images are built for your brand first — then formatted for every channel automatically. Amazon listing specs, website crops, social formats, and gifting catalogue layouts all delivered together.</div>
+    </div>
+    <div class="why-item" data-tip="Indian ethnic for domestic, global editorial for export — both done right">
+      <div class="why-num">04</div>
+      <div class="why-title">Dual-market fluency</div>
+      <div class="why-desc">We produce two distinct visual identities from one brief — Indian ethnic warmth for domestic buyers, clean global editorial for export markets.</div>
+    </div>
+    <div class="why-item" data-tip="Prices that make sense — no surprise invoices">
+      <div class="why-num">05</div>
+      <div class="why-title">All-inclusive pricing</div>
+      <div class="why-desc">Every package is fully loaded. No hidden costs for creative direction, props, or post-processing — what you see is what you pay.</div>
+    </div>
+    <div class="why-item" data-tip="3–4 weeks from brief to delivery">
+      <div class="why-num">06</div>
+      <div class="why-title">Fast turnaround</div>
+      <div class="why-desc">3–4 weeks from confirmed brief to final delivery — allowing time for production, post-processing, and revisions. Rush delivery available for festive launches and urgent campaigns.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 SCOPE -->
+<section class="section reveal">
+  <div class="section-label">01 — Scope of Work</div>
+  <h2 class="section-title">What we're<br>delivering</h2>
+  <p class="section-desc">A complete creative system built for a gifting-first shawl brand — premium visual identity that works across your website, social, gifting catalogues, and marketplaces.</p>
+  <div class="scope-grid">
+    <div class="scope-item" data-tip="Indian ethnic for domestic, global editorial for export">
+      <div class="s-label">Visual Direction</div>
+      <div class="s-val">Indian Ethnic &amp; Global Editorial Aesthetics</div>
+    </div>
+    <div class="scope-item" data-tip="Your brand imagery works everywhere — website, social, gifting catalogues, and Amazon listing specs">
+      <div class="s-label">Marketplace</div>
+      <div class="s-val">Brand-first visuals, marketplace-ready outputs</div>
+    </div>
+    <div class="scope-item" data-tip="Diwali, Eid, Pongal, Christmas, corporate gifting">
+      <div class="s-label">Gifting Focus</div>
+      <div class="s-val">Festive Edits, Gifting Compositions, Unboxing</div>
+    </div>
+    <div class="scope-item" data-tip="Product, lifestyle, gifting compositions, festive edits, and packaging — your complete visual library">
+      <div class="s-label">Shoot Types</div>
+      <div class="s-val">5 Categories of Imagery Covered</div>
+    </div>
+    <div class="scope-item" data-tip="Pashtush-level premium aesthetic is our benchmark">
+      <div class="s-label">Quality Benchmark</div>
+      <div class="s-val">Competitive with Pashtush Visual Standards</div>
+    </div>
+    <div class="scope-item" data-tip="Creative direction, production, post-processing — all in-house">
+      <div class="s-label">Production</div>
+      <div class="s-val">Fully In-House · All-Inclusive Pricing</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE TO START -->
+<section class="section reveal">
+  <div class="section-label" data-tip="Read your situation — we tell you exactly where to start">Not sure where to begin?</div>
+  <h2 class="section-title">Find your<br>starting point</h2>
+  <p class="section-desc">Every brand is at a different stage. Here's where we'd recommend you start based on where you are right now.</p>
+  <div class="start-grid">
+    <div class="start-card" data-tip="Start with Domestic Essential — test before you scale">
+      <div class="start-q">You're launching your brand for the first time</div>
+      <div class="start-a">Domestic Launch</div>
+      <div class="start-why">This is the complete foundation — Indian ethnic editorial, festive edits, gifting compositions, box shoot, and video. Everything your brand needs to show up with confidence on any channel.</div>
+    </div>
+    <div class="start-card" data-tip="Domestic Launch is your go-to — covers the full gifting calendar">
+      <div class="start-q">Your brand is live but the visuals aren't doing it justice</div>
+      <div class="start-a">Domestic Launch + Retainer</div>
+      <div class="start-why">Domestic Launch refreshes your entire visual identity. Then Gold Retainer keeps it alive every month — new looks, new festive edits, new social content.</div>
+    </div>
+    <div class="start-card" data-tip="Export package is built exactly for this">
+      <div class="start-q">You're targeting UK / US / export markets</div>
+      <div class="start-a">Export / International</div>
+      <div class="start-why">Global editorial aesthetic, colour graded for western audiences — ready for your export website, international social, and western marketplace listings.</div>
+    </div>
+    <div class="start-card" data-tip="Dual Market Complete — one production, both markets">
+      <div class="start-q">You want to launch both markets at once</div>
+      <div class="start-a">Dual Market Complete</div>
+      <div class="start-why">One integrated production, two complete brand identities — domestic and export. Website, social, gifting catalogues, and marketplace listings all covered for both markets.</div>
+    </div>
+    <div class="start-card" data-tip="Start with a launch package, then move to retainer">
+      <div class="start-q">You need ongoing fresh content every month</div>
+      <div class="start-a">Launch first, then Gold Retainer</div>
+      <div class="start-why">Launch package builds your visual identity foundation. Then Gold Retainer keeps your website, social, and listings fresh every month without briefing from scratch.</div>
+    </div>
+    <div class="start-card" data-tip="Full Digital Bundle pairs perfectly with any launch package">
+      <div class="start-q">You need a website + ads too</div>
+      <div class="start-a">Full Digital Bundle</div>
+      <div class="start-why">Your brand's own website + 3 months of paid campaigns to drive traffic to it. Stack with a launch package for a complete brand launch.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 PACKAGES -->
+<section class="section reveal">
+  <div class="section-label">02 — One-Time Packages</div>
+  <h2 class="section-title">Phase 1 —<br>your visual foundation</h2>
+  <p class="section-desc">This is where every brand must start. Before ads, before a website, before a retainer — you need a visual identity. These packages establish that foundation in one complete production. Everything that comes after is built on this.</p>
+
+  <div class="tab-nav" id="pkgTabs">
+    <button class="active" onclick="switchPkg(0)" data-tip="Entry point — complete domestic visual identity">Domestic Launch</button>
+    <button onclick="switchPkg(1)" data-tip="Amazon.com & Amazon.co.uk ready">Export / International</button>
+    <button onclick="switchPkg(2)" data-tip="Saves ₹80,000 vs buying both separately">Dual Market Complete</button>
+  </div>
+
+  <!-- PKG 0 -->
+  <div class="tab-content active" id="pkg0">
+    <div class="split">
+      <div class="split-card featured">
+        <div class="pkg-name">Domestic Launch</div>
+        <div class="pkg-price" data-tip="The essential starting point — your complete domestic brand visual identity in one production."><sup>₹</sup>2,40,000 <span class="gst">+ GST</span></div>
+        <div class="pkg-saving">All-inclusive · creative direction included</div>
+        <p class="pkg-desc">Extended production, rich Indian ethnic visual language — your complete domestic brand visual library, ready for every channel.</p>
+        <ul class="pkg-items">
+          <li data-tip="Multiple moods and compositions">Indian ethnic editorial — 4 looks</li>
+          <li data-tip="Double the output vs Essential">60 final edited images</li>
+          <li data-tip="Varied backgrounds and styled compositions" data-tip="Varied settings and backgrounds across all 4 looks — so your storefront doesn't feel repetitive">Multiple scenic &amp; editorial compositions</li>
+          <li data-tip="Full festive calendar covered" data-tip="Separate themed edits for each major gifting festival — swap them in seasonally on Amazon and social">Festive edits (Diwali / Eid / Pongal)</li>
+          <li data-tip="Gift-giving moment photography" data-tip="The gift-giving moment — someone receiving, unwrapping, gifting. The images that convert on Amazon gifting searches">Lifestyle gifting scenes</li>
+          <li data-tip="All 7 Amazon image slots filled per SKU" data-tip="Included in this package — no extra charge. Complete image set per SKU for website, listings, and catalogues.">Full Amazon listing set <span style="font-size:10px;color:var(--gold);letter-spacing:.05em">· included</span></li>
+          <li data-tip="Included — Tier 1 catalogue shots + Tier 2 gifting lifestyle. Tier 3 (brand story reel) available as add-on at ₹38,000.">Rigid box — Tier 1 &amp; 2 (catalogue + lifestyle) <span style="font-size:10px;color:var(--gold);letter-spacing:.05em">· included</span></li>
+          <li data-tip="Two distinct videos: 60-sec product reel and 90-sec brand story — for your website hero, Instagram, YouTube, and marketplace listing">2 video reels (60 + 90 sec)</li>
+          <li data-tip="Short-form visual content that tells your brand's story — ideal for Amazon Brand Store hero and Instagram highlights">Brand story content</li>
+        </ul>
+      </div>
+      <div class="split-card dark">
+        <div class="gold-line"></div>
+        <p class="insight">"This is not optional — it's the foundation. Every channel you sell on, every platform you show up on, needs this visual identity to exist first."</p>
+        <p class="best-for">Best for: Any brand serious about looking premium — this is your visual identity foundation before anything else</p>
+        <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border)">
+          <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Deliverable summary</div>
+          <div class="deliverables">
+            <div><div class="del-num" data-tip="60 fully retouched images — enough to fill your entire Amazon storefront and social calendar">60</div><div class="del-label">Images</div></div>
+            <div><div class="del-num" data-tip="60-sec product reel + 90-sec brand story — both colour graded with music">2</div><div class="del-label">Reels</div></div>
+            <div><div class="del-num" data-tip="4 distinct Indian ethnic editorial looks — varied compositions across festive, lifestyle, and editorial settings">4</div><div class="del-label">Looks</div></div>
+            <div><div class="del-num" data-tip="All 3 box shoot tiers — product, lifestyle gifting, and full gifting story">3</div><div class="del-label">Boxes</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PKG 2 -->
+  <div class="tab-content" id="pkg1">
+    <div class="split">
+      <div class="split-card">
+        <div class="pkg-name">Export / International</div>
+        <div class="pkg-price" data-tip="Calibrated specifically for western marketplace compliance — tone, grade, and spec all correct for export."><sup>₹</sup>3,20,000 <span class="gst">+ GST</span></div>
+        <div class="pkg-saving">All-inclusive · creative direction included</div>
+        <p class="pkg-desc">Clean global editorial aesthetic. Neutral, aspirational tone — built for your export website, international social, and western marketplace listings.</p>
+        <ul class="pkg-items">
+          <li data-tip="Neutral, aspirational, western-market aesthetic">Global editorial — 3 looks</li>
+          <li data-tip="70 fully retouched images delivered in all required formats — web, print, Amazon, and social">70 final edited images</li>
+          <li data-tip="Aspirational gifting for western buyers" data-tip="Editorial-style compositions with neutral, aspirational settings — designed to appeal to western buyers who expect a high-end feel">Premium aspirational compositions</li>
+          <li data-tip="Styled for gifting occasions in UK, US, Europe">International gifting styled scenes</li>
+          <li data-tip="Meets Amazon.com & Amazon.co.uk image spec">Amazon.com / Amazon.co.uk compliant set</li>
+          <li data-tip="Included — Tier 1 catalogue shots + Tier 2 gifting lifestyle, globally colour graded. Tier 3 brand story available as add-on.">Rigid box — Tier 1 &amp; 2 (catalogue + lifestyle) <span style="font-size:10px;color:var(--gold);letter-spacing:.05em">· included</span></li>
+          <li data-tip="30s, 60s and 90s cuts delivered" data-tip="Three video lengths: 30s for paid ads, 60s for Amazon listing, 90s for YouTube and brand story">3 video reels (30 / 60 / 90 sec)</li>
+          <li data-tip="Colour graded specifically for western platforms" data-tip="Specific colour grading calibrated for how western screens and platforms render Indian textile products — prevents colour mismatch">Colour graded for western markets</li>
+        </ul>
+      </div>
+      <div class="split-card dark">
+        <div class="gold-line"></div>
+        <p class="insight">"Built specifically for brands selling on western Amazon marketplaces — tone, grade, and spec all calibrated for export."</p>
+        <p class="best-for">Best for: Brands exporting to UK, US, Europe, or Middle East</p>
+        <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border)">
+          <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Deliverable summary</div>
+          <div class="deliverables">
+            <div><div class="del-num" data-tip="70 fully retouched images graded specifically for western marketplaces">70</div><div class="del-label">Images</div></div>
+            <div><div class="del-num" data-tip="30s / 60s / 90s cuts — covers paid ads, Amazon listing, and brand story">3</div><div class="del-label">Reels</div></div>
+            <div><div class="del-num" data-tip="3 global editorial looks — distinct moods within a clean, aspirational aesthetic">3</div><div class="del-label">Looks</div></div>
+            <div><div class="del-num">3</div><div class="del-label">Boxes</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PKG 3 -->
+  <div class="tab-content" id="pkg2">
+    <div class="split">
+      <div class="split-card">
+        <div class="pkg-name">Dual Market Complete</div>
+        <div class="pkg-price" data-tip="Saves ₹80,000 vs buying Domestic Launch + Export separately. One production, two complete market-ready outputs."><sup>₹</sup>4,80,000 <span class="gst">+ GST</span></div>
+        <div class="pkg-saving" data-tip="Domestic ₹2,40,000 + Export ₹3,20,000 = ₹5,60,000 separately">Saves ₹80,000 vs buying Domestic + Export separately</div>
+        <p class="pkg-desc">Full Indian ethnic + global editorial output. One integrated production — two distinct brand identities, each ready for their own market.</p>
+        <ul class="pkg-items">
+          <li data-tip="Both warm Indian and neutral global looks">Indian ethnic + global — full look set</li>
+          <li data-tip="60 domestic + 60 export, fully distinct" data-tip="120 images split across both markets — 60 Indian ethnic and 60 global editorial, fully distinct sets">120 final edited images</li>
+          <li data-tip="Included in this package — no extra charge. Two complete listing sets, one per market.">Domestic + export Amazon listing sets <span style="font-size:10px;color:var(--gold);letter-spacing:.05em">· included</span></li>
+          <li data-tip="Gifting compositions for both markets">Festive + gifting compositions (both markets)</li>
+          <li data-tip="Included in this package — no extra charge. Complete box shoot library across all tiers and both markets.">Rigid box — complete shoot library <span style="font-size:10px;color:var(--gold);letter-spacing:.05em">· included</span></li>
+          <li data-tip="4 unique reels across both markets" data-tip="4 distinct reels — domestic brand story, export brand story, gifting-focused, and product-focused">4 video reels total</li>
+          <li data-tip="One cohesive brand narrative across both markets" data-tip="One cohesive brand narrative film that works across both markets — for Amazon Brand Store and social">Full brand story reel</li>
+        </ul>
+      </div>
+      <div class="split-card dark">
+        <div class="gold-line"></div>
+        <p class="insight">"The complete launch kit — every image, every market, every format in one production."</p>
+        <p class="best-for">Best for: Brands launching simultaneously on India + export marketplaces</p>
+        <div class="saving-box">
+          <div class="sb-title">Saving breakdown</div>
+          <div class="sb-line">
+            Domestic Launch &nbsp;₹2,40,000<br>
+            Export / International &nbsp;₹3,20,000<br>
+            <span style="color:var(--border2)">─────────────────────</span><br>
+            Combined separately &nbsp;₹5,60,000<br>
+            <span style="color:var(--gold)">Dual Market Complete &nbsp;₹4,80,000</span><br>
+            <span style="color:#7ab648">You save &nbsp;₹80,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 BOX -->
+<section class="section reveal">
+  <div class="section-label">03 — Box &amp; Packaging Shoot</div>
+  <h2 class="section-title">We designed it.<br>Now we <em style="font-style:italic;color:var(--gold)">shoot it.</em></h2>
+  <p class="section-desc">White Mirage Studio designed your rigid gift box — which means we know every detail, every design intention, every brand nuance. No new brief needed. The shoot is a seamless extension of the design work, with output ready for your website, gifting catalogue, social, and marketplace listings.</p>
+  <div class="note" style="margin-bottom:2rem">Your premium rigid gifting box is designed and ready. The 3 tiers below define how deeply we shoot it — from clean product photography through to a full gifting story. All outputs formatted for website, social, gifting catalogue, and marketplace listings.</div>
+  <div class="box-grid">
+    <div class="box-card" data-tip="For your website product pages, gifting catalogue, and listing images. Clean and neutral — no styling or context.">
+      <div class="box-type">Tier 1 — Catalogue Shoot</div>
+      <div class="box-price" data-tip="Standalone — catalogue-only shots. Does not include lifestyle or brand story content.">₹14,000</div>
+      <div class="box-gst">+ GST</div>
+      <div class="box-divider"></div>
+      <div class="box-detail">Flat lay + all angles<br>White BG + 2 styled compositions<br>12 final images<br><span style="font-size:10px;color:var(--muted)">Use for: website, catalogue, listing images</span></div>
+    </div>
+    <div class="box-card featured" data-tip="For social media, festive campaigns, and gifting marketing. The box in a gifting moment — not a product shot.">
+      <div class="box-type">Tier 2 — Gifting Lifestyle</div>
+      <div class="box-price" data-tip="Standalone — lifestyle shots only. Does not include catalogue or brand story content.">₹24,000</div>
+      <div class="box-gst">+ GST</div>
+      <div class="box-divider"></div>
+      <div class="box-detail">Hands-with-gift lifestyle shots<br>Festive &amp; seasonal set dressing<br>Indian ethnic + global versions<br>18 final images<br><span style="font-size:10px;color:var(--muted)">Use for: social, festive campaigns, ads</span></div>
+    </div>
+    <div class="box-card" data-tip="For brand films, corporate gifting pitches, and premium campaigns. Story-led — not product shots or lifestyle.">
+      <div class="box-type">Tier 3 — Brand Story</div>
+      <div class="box-price" data-tip="Standalone — brand story content only. Does not include catalogue or lifestyle shots.">₹38,000</div>
+      <div class="box-gst">+ GST</div>
+      <div class="box-divider"></div>
+      <div class="box-detail">Unboxing experience sequence<br>Hamper &amp; gift set styling<br>Corporate gifting compositions<br>30 final images + 1 brand story reel<br><span style="font-size:10px;color:var(--muted)">Use for: brand films, corporate pitches, premium campaigns</span></div>
+    </div>
+  </div>
+  <div class="box-bundle" data-tip="Three different shoots for three different jobs. Buy only what you need, or take all 3 and save ₹8,000.">
+    <p>All 3 tiers — catalogue + lifestyle + brand story</p>
+    <strong>₹68,000 + GST</strong>
+    <p style="margin-top:6px;font-size:11px;color:var(--muted)">Each tier is a separate shoot for a different purpose · Buy individually or together · Saves ₹8,000 vs individual</p>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="section reveal">
+  <div class="section-label">The recommended path</div>
+  <h2 class="section-title">How brands go from<br><em style="font-style:italic;color:var(--gold)">invisible to iconic</em></h2>
+  <p class="section-desc">Every brand we work with follows the same two-phase journey. Skipping Phase 1 makes Phase 2 impossible — you cannot maintain a visual identity that doesn't exist yet.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:2rem">
+    <div style="background:var(--card2);padding:2rem;border-top:2px solid var(--gold);position:relative">
+      <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem">Phase 1 · Do this first</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--text);margin-bottom:.5rem">One-time launch package</div>
+      <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:1.5rem">Establishes your complete visual identity in one production — photography, video, box shoot, festive edits. This is the asset library everything else draws from. Without it, every month of retainer is starting from scratch.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
+        <div style="background:rgba(201,168,76,.06);border:1px solid var(--border2);padding:.875rem;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold)">₹2,40,000</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">Domestic Launch</div>
+        </div>
+        <div style="background:rgba(201,168,76,.06);border:1px solid var(--border2);padding:.875rem;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold)">₹4,80,000</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">Dual Market</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--card);padding:2rem;border-top:2px solid var(--border2);position:relative">
+      <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem">Phase 2 · Then this</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--text);margin-bottom:.5rem">Monthly retainer</div>
+      <div style="font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:1.5rem">Keeps your brand fresh, your listings current, and your social active — every month, without briefing from scratch. Possible only because Phase 1 established the visual language. Retainer without a launch package is running on empty.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
+        <div style="background:var(--card2);border:1px solid var(--border);padding:.875rem;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--muted2)">₹1,20,000</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">Gold / month</div>
+        </div>
+        <div style="background:var(--card2);border:1px solid var(--border);padding:.875rem;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--muted2)">₹2,00,000</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">Platinum / month</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--card2);border-left:2px solid var(--gold);padding:1.25rem 1.5rem;font-size:13px;color:var(--muted2);line-height:1.8" data-tip="This is the most important thing to understand about how we work">
+    <span style="color:var(--gold);font-weight:500">The rule is simple:</span> Phase 1 is not optional. It is the single best investment your brand makes in year one. Phase 2 is where that investment compounds — month after month, season after season.
+  </div>
+</section>
+
+<!-- 04 RETAINER -->
+<section class="section reveal">
+  <div class="section-label">04 — Retainership</div>
+  <h2 class="section-title">Ongoing content<br>engine</h2>
+  <p class="section-desc">Phase 2 of your brand build — once your launch package has established the visual identity, retainer keeps it alive, fresh, and growing every month. Retainer alone without a launch package is like running ads without a brand.</p>
+  <div class="ret-grid">
+    <div class="ret-card featured" data-tip="Covers both markets with ongoing ad creatives included">
+      <div class="ret-name">Gold</div>
+      <div class="ret-sub">Phase 2 — ongoing content engine</div>
+      <div class="ret-price" data-tip="Covers your full content pipeline — brand imagery, social, website updates, and marketplace listings for both markets. Ad creatives included.">₹1,20,000 <small>/month + GST</small></div>
+      <div class="ret-note">Starts after your launch package · keeps the brand alive month on month</div>
+      <ul class="ret-items">
+        <li>Indian ethnic editorial — 3 looks/month</li>
+        <li data-tip="One full global editorial look every 3 months">Global editorial — 1 look/quarter</li>
+        <li data-tip="30 fully finished images every month — enough to refresh your Amazon listings, social feed, and gifting catalogue regularly">30 final retouched images/month</li>
+        <li data-tip="Two video edits every month — 30s for paid ads and stories, 60s for Amazon listing and feed">2 reels (30 + 60 sec)/month</li>
+        <li data-tip="Seasonal overlays, festive recuts, and gifting-themed edits produced ahead of every major occasion — Diwali, Eid, Christmas, etc.">Festive &amp; gifting edits</li>
+        <li data-tip="All Amazon-format assets delivered monthly — formatted, sized, and ready for you to upload">Amazon-ready assets delivered monthly</li>
+        <li data-tip="10 designed social posts per month — feed posts, stories, and carousel formats, ready to publish" data-tip="10 social-ready creatives delivered monthly — formatted for feed and stories, ready for you to post">Social-ready creatives delivered (10/month)</li>
+        <li data-tip="Meta + Amazon sponsored ad creatives included">Ad creatives (Meta / Amazon)</li>
+        <li data-tip="Your projects jump the queue — useful for last-minute festive campaigns or time-sensitive launches">Priority scheduling</li>
+      </ul>
+    </div>
+    <div class="ret-card" data-tip="Full-service team, maximum output, both markets every month">
+      <div class="ret-name">Platinum</div>
+      <div class="ret-sub">Phase 2 — full-service both markets</div>
+      <div class="ret-price" data-tip="Full-service output — the equivalent of an in-house creative team. Dedicated account manager, 50 images, 4 reels, all ad platforms.">₹2,00,000 <small>/month + GST</small></div>
+      <div class="ret-note">Starts after your launch package · complete brand content operation</div>
+      <ul class="ret-items">
+        <li data-tip="Both visual identities produced every single month — domestic Indian ethnic and global editorial, never letting either market go stale">Indian ethnic + global looks every month</li>
+        <li data-tip="50 images per month across both markets — enough for a complete monthly content calendar">50 final retouched images/month</li>
+        <li data-tip="4 video reels every month — covers Amazon listing, paid ads, Instagram Reels, and brand story content">4 video reels/month</li>
+        <li data-tip="Every gifting occasion covered proactively — we plan and produce festive content before the season hits">All seasonal / festive content</li>
+        <li data-tip="All creative assets delivered monthly — formatted for website, social, marketplace listings, and gifting catalogues. Ready to use, ready to post, ready to upload.">Amazon-ready assets — domestic + export formats</li>
+        <li data-tip="20 designed social assets per month — enough for daily posting across Instagram and WhatsApp" data-tip="20 social-ready creatives delivered monthly — you post, we produce">Social-ready creatives delivered (20/month)</li>
+        <li data-tip="Meta, Google Display, Amazon Sponsored">Paid ad creatives — all platforms</li>
+        <li data-tip="A dedicated 30-minute call every month to align on upcoming campaigns, seasonal content, and performance insights">Monthly strategy call</li>
+        <li data-tip="One point of contact at White Mirage Studio who knows your brand inside out — no briefing from scratch each time">Dedicated account manager</li>
+        <li data-tip="Every 3 months, a full creative review and new look — keeps your brand feeling fresh without a full rebrand">Quarterly brand refresh</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note">Retainer begins after your one-time launch package is complete &nbsp;·&nbsp; Minimum commitment: 3 months advance &nbsp;·&nbsp; 6-month commitment: additional 5% off &nbsp;·&nbsp; Annual: 10% off + 1 complimentary production day &nbsp;·&nbsp; 30 days written notice to exit</div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section reveal">
+  <div class="section-label" data-tip="Hover over each step to understand what happens at each stage">What happens after you say yes</div>
+  <h2 class="section-title">How a project<br>unfolds</h2>
+  <p class="section-desc">From brief to delivery — a clear, no-surprise process designed for fast-moving brands.</p>
+  <div class="tl-grid">
+    <div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-week">Week 1 · Days 1–2</div>
+          <div class="tl-title">Discovery call + brief</div>
+          <div class="tl-desc">30-minute call to align on brand tone, references, festive themes, and marketplace priorities. We send a written brief for your sign-off.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-week">Week 1 · Day 3</div>
+          <div class="tl-title">Advance payment + slot confirmed</div>
+          <div class="tl-desc">50% advance secures your production slot. You receive a confirmed project schedule with shoot dates and delivery milestones.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-week">Week 1–2 · Days 4–8</div>
+          <div class="tl-title">Creative direction &amp; pre-production</div>
+          <div class="tl-desc">Mood boards, visual references, composition planning, wardrobe/prop selection, and location or setting planning — all shared with you for sign-off before production begins.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-week">Week 2 · Days 9–12</div>
+          <div class="tl-title">Production</div>
+          <div class="tl-desc">Full visual production — all looks, compositions, video content, and box shoot produced to brief. Multiple production days scheduled as needed.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-week">Week 3 · Days 13–18</div>
+          <div class="tl-title">Post-production &amp; first draft</div>
+          <div class="tl-desc">Retouching, colour grading, video editing, and format exports. First draft delivered for your review — domestic and export versions produced in parallel.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-week">Week 3–4 · Days 19–24</div>
+          <div class="tl-title">Revisions + final delivery</div>
+          <div class="tl-desc">Up to 2 rounds of revisions. Final files delivered in all required formats — website, social, marketplace, gifting catalogue, and print — organised, labelled, and ready to use.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGY INSIGHT -->
+<section class="section reveal">
+  <div class="section-label">A word of strategy</div>
+  <h2 class="section-title">Your marketplace listing<br>is not your <em style="font-style:italic;color:var(--gold)">brand.</em></h2>
+  <p class="section-desc">Before a buyer completes a purchase on any marketplace, a significant number of them quietly open a new tab and search for your brand directly. What they find — or don't find — determines whether they buy.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);margin-bottom:2rem">
+    <div style="background:var(--card);padding:1.75rem" data-tip="Source: Google Consumer Insights — most purchase journeys involve multiple touchpoints before a final decision">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);line-height:1">81%</div>
+      <div style="font-size:12px;color:var(--text);margin-top:.5rem;font-weight:500">of shoppers research a brand online before buying</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.4rem;line-height:1.6">Even if they first discovered the product on a marketplace, they look you up independently before committing.</div>
+    </div>
+    <div style="background:var(--card);padding:1.75rem" data-tip="A brand website signals permanence — it says you're a real business, not just a seller account">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);line-height:1">73%</div>
+      <div style="font-size:12px;color:var(--text);margin-top:.5rem;font-weight:500">of buyers say a brand website increases their purchase confidence</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.4rem;line-height:1.6">Especially for premium and gifting purchases — buyers want to feel they're buying from a brand, not just a listing.</div>
+    </div>
+    <div style="background:var(--card);padding:1.75rem" data-tip="Corporate gifting buyers almost always research the brand website before placing a bulk order">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);line-height:1">2×</div>
+      <div style="font-size:12px;color:var(--text);margin-top:.5rem;font-weight:500">higher likelihood of repeat purchase when a brand website exists</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.4rem;line-height:1.6">Marketplace buyers who find a brand website are far more likely to return directly — bypassing the marketplace and its fees entirely.</div>
+    </div>
+    <div style="background:var(--card2);padding:1.75rem;border-left:2px solid var(--gold)" data-tip="Even a single-page brand website with your story, products, and a WhatsApp link is enough to build trust">
+      <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem">Our recommendation</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--text);line-height:1.5;margin-bottom:.75rem">You don't need a full e-commerce store to start. A brand website — your story, your products, your contact — is enough to earn the trust that converts a marketplace browser into a buyer.</div>
+      <div style="font-size:12px;color:var(--muted2);line-height:1.7">For a premium gifting shawl brand, the website is your corporate gifting pitch deck, your wholesale catalogue, and your credibility certificate — all in one place. A ₹1,50,000 brand website is the minimum that reflects the quality of what you sell.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 DIGITAL -->
+<section class="section reveal">
+  <div class="section-label">05 — Website &amp; Digital</div>
+  <h2 class="section-title">Digital<br>presence</h2>
+  <p class="section-desc">A premium brand website and ad infrastructure — your brand's home on the internet, designed to convert gifting buyers and build long-term brand equity beyond any marketplace.</p>
+  <div class="dig-grid">
+    <div class="dig-card" data-tip="As recommended in our strategy — a brand website builds buyer confidence before any purchase decision is made">
+      <div class="pkg-name">Brand Website</div>
+      <div class="pkg-price" data-tip="One-time build fee. A serious brand website for a premium gifting brand — not a template, a properly designed brand presence."><sup>₹</sup>1,50,000 <span class="gst">+ GST</span></div>
+      <div class="pkg-saving">Start here — as recommended in our strategy</div>
+      <p class="pkg-desc" style="margin-top:1rem">Your brand's home on the internet — story, products, gifting focus, and contact. No cart needed to build trust and convert buyers.</p>
+      <ul class="pkg-items">
+        <li data-tip="Your brand story, aesthetic, and values — the page that turns a marketplace browser into a loyal buyer">Brand story + about page</li>
+        <li data-tip="Beautiful product showcase without a cart — your full range presented with premium photography and gifting context">Product showcase (non-transactional)</li>
+        <li data-tip="A dedicated page for corporate and bulk gifting enquiries — your most valuable B2B lead channel">Corporate gifting enquiry page</li>
+        <li data-tip="Seasonal gift guide content — builds organic search traffic and keeps the site feeling current">Gift guide / festive section</li>
+        <li data-tip="WhatsApp and email contact — the two channels gifting buyers use most before placing an order">WhatsApp &amp; direct enquiry integration</li>
+        <li data-tip="Optimised for Google so buyers who search your brand name find you — not just a marketplace listing">SEO + Google presence setup</li>
+      </ul>
+    </div>
+    <div class="dig-card featured" data-tip="Premium brand website built to Pashtush-level aesthetics">
+      <div class="pkg-name">Brand + Commerce Website</div>
+      <div class="pkg-price" data-tip="One-time build fee. Full brand design system + e-commerce + B2B gifting + export version. A ₹5L build at an agency rate — delivered by White Mirage who already know your brand."><sup>₹</sup>2,50,000 <span class="gst">+ GST</span></div>
+      <div class="pkg-saving">Built to compete with Pashtush aesthetics</div>
+      <p class="pkg-desc" style="margin-top:1rem">Premium brand website + full shop, designed to win on first impression.</p>
+      <ul class="pkg-items">
+        <li data-tip="Typography, colour palette, spacing, and component rules — so every page of your website looks like it belongs to the same brand">Full brand design system</li>
+        <li data-tip="Includes dedicated B2B gifting enquiry page">8–10 pages including B2B gifting</li>
+        <li data-tip="Landing pages that work both standalone and linked from marketplace listings — converts first-time buyers into direct repeat customers">Custom landing pages for Amazon</li>
+        <li data-tip="A separate version of the website with pricing in USD/GBP, international shipping info, and copy calibrated for western buyers">Export / international version</li>
+        <li data-tip="Dedicated seasonal pages for Diwali, Christmas, and corporate gifting — launched ahead of each season and retired after">Festive campaign pages</li>
+        <li data-tip="A content section for styling edits, gifting guides, and brand stories — builds SEO and keeps the site feeling alive">Blog / lookbook section</li>
+        <li data-tip="Email signup with a gifting-themed lead magnet — connects to Mailchimp or Klaviyo for automated follow-up and seasonal campaigns">Email capture + CRM integration</li>
+        <li data-tip="Core Web Vitals optimised, lazy loading, and conversion-focused layout — faster load = higher conversion, especially on mobile">Speed &amp; conversion optimised</li>
+      </ul>
+    </div>
+    <div class="dig-card" data-tip="Management fee only — ad spend is separate and controlled by you">
+      <div class="pkg-name">Paid Ad Campaigns</div>
+      <div class="pkg-price" data-tip="Management fee only — covers strategy, creative, and optimisation. Ad spend (what you pay Meta, Google, and Amazon directly) is separate and fully yours to control."><sup>₹</sup>35,000 <span class="gst">/mo + GST</span></div>
+      <div class="pkg-saving" style="color:var(--muted2)">Ad spend billed separately, controlled by you</div>
+      <p class="pkg-desc" style="margin-top:1rem">Meta + Amazon Sponsored Ads. Creative, strategy, and management included.</p>
+      <ul class="pkg-items">
+        <li data-tip="Instagram feed, Stories, and Facebook ad campaigns — targeted at gifting intent audiences, women 25–50, and lookalike audiences">Meta (Instagram + Facebook) ads</li>
+        <li data-tip="Sponsored Product, Sponsored Brand, and Display">Amazon Sponsored Ads</li>
+        <li data-tip="4 distinct ad creatives per month — different visuals, copy, and formats to prevent ad fatigue and enable A/B testing">4 ad creative sets/month</li>
+        <li data-tip="We test two versions of every ad against each other and shift budget to the winner — improves ROAS over time">A/B testing &amp; optimisation</li>
+        <li data-tip="A clear monthly report showing spend, impressions, clicks, conversions, and ROAS — no jargon, just what matters">Monthly performance report</li>
+        <li data-tip="We plan your festive ad campaigns 4–6 weeks ahead — Diwali, Eid, Valentine's etc. — so you're never scrambling last-minute">Gifting &amp; festive campaign planning</li>
+      </ul>
+    </div>
+    <div class="dig-card" data-tip="Brand + Commerce ₹2,50,000 + 3 months ads ₹1,05,000 = ₹3,55,000 separately — you pay ₹3,50,000">
+      <div class="pkg-name">Full Digital Bundle</div>
+      <div class="pkg-price" data-tip="Brand + Commerce website (₹2,50,000) + 3 months ad management (₹1,05,000) = ₹3,55,000 separately. You pay ₹3,50,000."><sup>₹</sup>3,50,000 <span class="gst">+ GST</span></div>
+      <div class="pkg-saving">Saves ₹1,55,000 vs buying separately</div>
+      <p class="pkg-desc" style="margin-top:1rem">Website (brand + commerce) + 3 months ad management. One team, one vision.</p>
+      <ul class="pkg-items">
+        <li data-tip="The full Brand + Commerce website — 8-10 pages, brand design system, Amazon landing pages, festive pages, and CRM integration">Everything in Brand + Commerce</li>
+        <li data-tip="Three months of Meta + Amazon ad management included — enough to run a launch campaign and a festive campaign">3 months paid ad management</li>
+        <li data-tip="A dedicated strategy session to plan your website launch — audience targeting, ad sequencing, and launch week content plan">Launch campaign strategy</li>
+        <li data-tip="One full festive campaign (Diwali or Christmas) planned, produced, and managed within the 3-month window">Festive season campaign included</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 06 ADD-ONS -->
+<section class="section reveal">
+  <div class="section-label" data-tip="These are optional — but each one directly increases your Amazon conversion or brand reach">06 — Smart Add-Ons</div>
+  <h2 class="section-title">Extend your<br>impact</h2>
+  <p class="section-desc">High-value services that pair naturally with any package — recommended for gifting brands serious about their Amazon presence and social footprint.</p>
+  <div class="addon-grid">
+    <div class="addon-card" data-tip="A+ pages increase conversion by up to 10% on Amazon">
+      <div class="addon-tag">Amazon</div>
+      <div class="addon-name">Amazon A+ Content &amp; Brand Store</div>
+      <div class="addon-desc">Premium A+ content pages and a fully designed Amazon Brand Store — the single biggest conversion lever for marketplace brands.</div>
+      <div class="addon-price" data-tip="One-time fee for design and build of all A+ content modules and Brand Store — no monthly charges after that">₹35,000 <small>+ GST / one-time</small></div>
+    </div>
+    <div class="addon-card" data-tip="WhatsApp is the primary B2B gifting channel in India">
+      <div class="addon-tag">Social Commerce</div>
+      <div class="addon-name">WhatsApp Catalogue &amp; Instagram Shop</div>
+      <div class="addon-desc">Structured product catalogue for WhatsApp Business + shoppable Instagram feed setup. Critical for corporate gifting enquiries.</div>
+      <div class="addon-price" data-tip="One-time setup — catalogue is yours to update freely after handover">₹18,000 <small>+ GST / one-time</small></div>
+    </div>
+    <div class="addon-card" data-tip="Never miss a gifting season — plan all 12 months upfront">
+      <div class="addon-tag">Planning</div>
+      <div class="addon-name">Annual Festive Content Calendar</div>
+      <div class="addon-desc">A full 12-month content and campaign calendar covering every gifting moment — Diwali, Eid, Pongal, Valentine's, Mother's Day, Christmas &amp; more.</div>
+      <div class="addon-price" data-tip="Renewed annually — covers all 12 months of gifting occasions with shoot briefs and campaign dates mapped out">₹18,000 <small>+ GST / per year</small></div>
+    </div>
+    <div class="addon-card" data-tip="Turn one video shoot into 5–6 platform-optimised cuts">
+      <div class="addon-tag">Video</div>
+      <div class="addon-name">Reels &amp; Shorts Repurposing Pack</div>
+      <div class="addon-desc">Take existing video assets and recut into platform-specific formats — Instagram Reels, YouTube Shorts, Amazon video ads, and WhatsApp Status.</div>
+      <div class="addon-price" data-tip="Per source video — we recut it into 5–6 platform formats. Add this to any video reel for maximum reach per shoot">₹12,000 <small>+ GST / per video</small></div>
+    </div>
+    <div class="addon-card" data-tip="Perfect for corporate and bulk gifting clients">
+      <div class="addon-tag">B2B</div>
+      <div class="addon-name">Corporate Gifting Lookbook</div>
+      <div class="addon-desc">A beautifully designed digital PDF lookbook for corporate clients — showcasing gift sets, customisation options, and bulk pricing tiers.</div>
+      <div class="addon-price" data-tip="Designed PDF delivered in print and screen versions — use it for corporate sales pitches, WhatsApp, and email outreach">₹22,000 <small>+ GST / one-time</small></div>
+    </div>
+    <div class="addon-card" data-tip="Your Amazon storefront is your digital flagship — keep it fresh">
+      <div class="addon-tag">Amazon</div>
+      <div class="addon-name">Seasonal Storefront Refresh</div>
+      <div class="addon-desc">Refresh your Amazon Brand Store hero banner, featured collections, and lifestyle imagery for Diwali, winter, or any major gifting season.</div>
+      <div class="addon-price" data-tip="Per seasonal refresh — typically 3–4 times a year (Diwali, winter, summer, festive). Can be bundled with retainer at a discount">₹15,000 <small>+ GST / per season</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 TERMS -->
+<section class="section reveal">
+  <div class="section-label">07 — Commercial Terms</div>
+  <h2 class="section-title">How we<br>work together</h2>
+  <p class="section-desc">Simple, transparent terms — no surprises on either side.</p>
+  <div class="terms-grid">
+    <div class="term-item" data-tip="Secures your slot and kick-starts production">
+      <div class="term-label">Payment — one-time</div>
+      <div class="term-val">50% advance, 50% before delivery</div>
+    </div>
+    <div class="term-item" data-tip="Auto-renews monthly until 30-day notice is served">
+      <div class="term-label">Payment — retainer</div>
+      <div class="term-val">3 months advance to commence, then monthly thereafter</div>
+    </div>
+    <div class="term-item" data-tip="Clock starts once we have your confirmed brief">
+      <div class="term-label">Delivery turnaround</div>
+      <div class="term-val">3–4 weeks post-brief confirmation</div>
+    </div>
+    <div class="term-item" data-tip="Rush available for urgent launches or festive deadlines">
+      <div class="term-label">Rush delivery</div>
+      <div class="term-val">Available at +25% surcharge</div>
+    </div>
+    <div class="term-item" data-tip="Covers colour, crop, and copy changes — not concept changes">
+      <div class="term-label">Revisions included</div>
+      <div class="term-val">2 rounds of edit revisions</div>
+    </div>
+    <div class="term-item" data-tip="Covers a full round of feedback — colour tweaks, crop changes, copy edits. Concept or direction changes are a separate conversation.">
+      <div class="term-label">Additional revisions</div>
+      <div class="term-val">₹2,500 per round</div>
+    </div>
+    <div class="term-item" data-tip="No invoices for props or sets — all in the package price">
+      <div class="term-label">Props &amp; set dressing</div>
+      <div class="term-val">Included, no additional cost</div>
+    </div>
+    <div class="term-item" data-tip="No annual renewal fees — once paid, rights are yours forever">
+      <div class="term-label">Usage rights</div>
+      <div class="term-val">Full perpetual rights on final payment</div>
+    </div>
+    <div class="term-item" data-tip="You can exit any month with 30 days written notice">
+      <div class="term-label">Retainer notice period</div>
+      <div class="term-val">30 days written notice to exit</div>
+    </div>
+    <div class="term-item" data-tip="18% GST is added to all invoices as required by Indian tax law. GST-registered clients can claim input credit.">
+      <div class="term-label">GST</div>
+      <div class="term-val">18% applicable on all services</div>
+    </div>
+    <div class="term-item" data-tip="This proposal is valid for 30 days from issue date">
+      <div class="term-label">Proposal validity</div>
+      <div class="term-val">30 days from date of issue</div>
+    </div>
+    <div class="term-item" data-tip="All production, direction & delivery is handled in-house">
+      <div class="term-label">Production</div>
+      <div class="term-val">Fully in-house · no third-party costs</div>
+    </div>
+  </div>
+  <div class="note">All quotes are all-inclusive — no hidden costs or surprise charges. Final scope confirmed after a 30-minute discovery call.</div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section reveal">
+  <h2>Ready to build something<br><em>remarkable?</em></h2>
+  <p>Let's spend 30 minutes aligning on your vision. No commitment — just a conversation about where your brand is headed and how we can get you there.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/919811188831?text=Hi%2C%20I%20reviewed%20the%20White%20Mirage%20Studio%20proposal%20and%20would%20like%20to%20discuss%20further." class="cta-btn primary" target="_blank">↗ WhatsApp Us</a>
+    <a href="mailto:hello@whitemirage.com?subject=Proposal%20Discussion%20%E2%80%94%20Shawl%20Brand" class="cta-btn" target="_blank">Write to Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">White Mirage Studio</div>
+    <div style="font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:.05em">Photography · Video · Website · Paid Campaigns</div>
+  </div>
+  <div class="footer-copy">
+    This proposal is confidential and prepared exclusively for your brand.<br>
+    Prices in INR, exclusive of 18% GST. Valid 30 days from issue.<br>
+    All creative production handled in-house by White Mirage Studio.
+  </div>
+</footer>
+
+<script>
+// CURSOR — desktop only
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursor-ring');
+const tip=document.getElementById('cursor-tip');
+let mx=0,my=0,rx=0,ry=0;
+if(window.matchMedia('(hover:hover)').matches){
+  document.addEventListener('mousemove',e=>{
+    mx=e.clientX;my=e.clientY;
+    cursor.style.left=mx+'px';cursor.style.top=my+'px';
+  });
+  (function loop(){
+    rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    tip.style.left=mx+'px';tip.style.top=my+'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('[data-tip]').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{
+      document.body.classList.add('cursor-hover','cursor-tip-show');
+      tip.textContent=el.dataset.tip;
+    });
+    el.addEventListener('mouseleave',()=>{
+      document.body.classList.remove('cursor-hover','cursor-tip-show');
+    });
+  });
+  document.querySelectorAll('button,a').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
+  });
+}
+
+// TABS
+function switchPkg(i){
+  ['pkg0','pkg1','pkg2'].forEach((id,idx)=>{
+    document.getElementById(id).classList.toggle('active',idx===i);
+  });
+  document.querySelectorAll('#pkgTabs button').forEach((b,idx)=>{
+    b.classList.toggle('active',idx===i);
+  });
+}
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
