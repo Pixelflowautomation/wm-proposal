@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creative Proposal — Shawl Brand · White Mirage Studio</title>
+<title>Creative Proposal — Wrapover · White Mirage Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -51,6 +51,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(201,168,76,.06) 0%,transparent 70%)}
 .hero-line{position:absolute;top:0;left:var(--pad);width:1px;height:100%;background:linear-gradient(to bottom,transparent,var(--border2),transparent)}
 .hero-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;opacity:0;animation:fadeUp .8s .2s forwards}
+.hero-logo{width:clamp(110px,11vw,160px);height:auto;margin-bottom:2.5rem;opacity:0;animation:fadeUp .9s .1s forwards}
+.hero-client-logo{width:clamp(140px,14vw,200px);height:auto;margin-top:2rem;opacity:0;animation:fadeUp .9s .8s forwards;filter:brightness(0) invert(1) opacity(.92)}
+.client-name{font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif}
+.corner-mark{position:fixed;top:1.4rem;left:1.4rem;z-index:50;width:54px;height:54px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(8,8,15,.55);backdrop-filter:blur(10px);border:1px solid var(--border);transition:transform .3s,border-color .3s}
+.corner-mark:hover{transform:rotate(-8deg);border-color:var(--gold)}
+.corner-mark img{width:70%;height:auto;filter:brightness(1.1) contrast(1.05)}
+.footer-left{display:flex;align-items:center;gap:1rem}
+.footer-logo{width:46px;height:auto;filter:brightness(1.1) contrast(1.05)}
+@media(max-width:760px){.corner-mark{width:42px;height:42px;top:1rem;left:1rem}.hero-logo{margin-bottom:1.6rem}}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,8vw,8rem);font-weight:300;line-height:.95;letter-spacing:-.02em;opacity:0;animation:fadeUp .9s .4s forwards}
 .hero h1 em{font-style:italic;color:var(--gold)}
 .hero-sub{margin-top:1.5rem;font-size:clamp(12px,1.5vw,14px);color:var(--muted2);letter-spacing:.04em;opacity:0;animation:fadeUp .8s .7s forwards;max-width:500px;line-height:1.8}
@@ -283,13 +292,20 @@ footer{padding:var(--pad);display:flex;justify-content:space-between;align-items
 <div id="cursor-ring"></div>
 <div id="cursor-tip"></div>
 
+<!-- FIXED CORNER MARK -->
+<a href="#" class="corner-mark" aria-label="White Mirage Studio">
+  <img src="logo.png" alt="White Mirage Studio" />
+</a>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-line"></div>
+  <img src="logo.png" alt="White Mirage Studio" class="hero-logo" />
   <div class="hero-tag">Creative Services Proposal · 2025</div>
-  <h1>Crafting a<br><em>Visual Identity</em><br>for Your Shawl Brand</h1>
+  <h1>Crafting a<br><em>Visual Identity</em><br>for <span class="client-name">Wrapover</span></h1>
   <p class="hero-sub">Brand Identity · Photography · Video · Website · Paid Campaigns — Domestic &amp; Export Markets, Gifting Focus</p>
+  <img src="wrapover-logo.png" alt="Wrapover" class="hero-client-logo" />
   <div class="hero-meta">
     <div class="hero-meta-item"><div class="label">Prepared by</div><div class="val">White Mirage Studio</div></div>
     <div class="hero-meta-item"><div class="label">Markets</div><div class="val">India + International</div></div>
@@ -342,7 +358,7 @@ footer{padding:var(--pad);display:flex;justify-content:space-between;align-items
 <section class="section reveal">
   <div class="section-label">01 — Scope of Work</div>
   <h2 class="section-title">What we're<br>delivering</h2>
-  <p class="section-desc">A complete creative system built for a gifting-first shawl brand — premium visual identity that works across your website, social, gifting catalogues, and marketplaces.</p>
+  <p class="section-desc">A complete creative system built for a gifting-first brand like Wrapover — premium visual identity that works across your website, social, gifting catalogues, and marketplaces.</p>
   <div class="scope-grid">
     <div class="scope-item" data-tip="Indian ethnic for domestic, global editorial for export">
       <div class="s-label">Visual Direction</div>
@@ -452,7 +468,7 @@ footer{padding:var(--pad);display:flex;justify-content:space-between;align-items
             <div><div class="del-num" data-tip="60 fully retouched images — enough to fill your entire Amazon storefront and social calendar">60</div><div class="del-label">Images</div></div>
             <div><div class="del-num" data-tip="60-sec product reel + 90-sec brand story — both colour graded with music">2</div><div class="del-label">Reels</div></div>
             <div><div class="del-num" data-tip="4 distinct Indian ethnic editorial looks — varied compositions across festive, lifestyle, and editorial settings">4</div><div class="del-label">Looks</div></div>
-            <div><div class="del-num" data-tip="All 3 box shoot tiers — product, lifestyle gifting, and full gifting story">3</div><div class="del-label">Boxes</div></div>
+            <div><div class="del-num" data-tip="All 3 box shoot tiers — product, lifestyle gifting, and full gifting story">3</div><div class="del-label">Box Shoot Tiers</div></div>
           </div>
         </div>
       </div>
@@ -488,7 +504,7 @@ footer{padding:var(--pad);display:flex;justify-content:space-between;align-items
             <div><div class="del-num" data-tip="70 fully retouched images graded specifically for western marketplaces">70</div><div class="del-label">Images</div></div>
             <div><div class="del-num" data-tip="30s / 60s / 90s cuts — covers paid ads, Amazon listing, and brand story">3</div><div class="del-label">Reels</div></div>
             <div><div class="del-num" data-tip="3 global editorial looks — distinct moods within a clean, aspirational aesthetic">3</div><div class="del-label">Looks</div></div>
-            <div><div class="del-num">3</div><div class="del-label">Boxes</div></div>
+            <div><div class="del-num">3</div><div class="del-label">Box Shoot Tiers</div></div>
           </div>
         </div>
       </div>
@@ -736,7 +752,7 @@ footer{padding:var(--pad);display:flex;justify-content:space-between;align-items
     <div style="background:var(--card2);padding:1.75rem;border-left:2px solid var(--gold)" data-tip="Even a single-page brand website with your story, products, and a WhatsApp link is enough to build trust">
       <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem">Our recommendation</div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--text);line-height:1.5;margin-bottom:.75rem">You don't need a full e-commerce store to start. A brand website — your story, your products, your contact — is enough to earn the trust that converts a marketplace browser into a buyer.</div>
-      <div style="font-size:12px;color:var(--muted2);line-height:1.7">For a premium gifting shawl brand, the website is your corporate gifting pitch deck, your wholesale catalogue, and your credibility certificate — all in one place. A ₹1,50,000 brand website is the minimum that reflects the quality of what you sell.</div>
+      <div style="font-size:12px;color:var(--muted2);line-height:1.7">For a premium gifting brand like Wrapover, the website is your corporate gifting pitch deck, your wholesale catalogue, and your credibility certificate — all in one place. A ₹1,50,000 brand website is the minimum that reflects the quality of what you sell.</div>
     </div>
   </div>
 </section>
@@ -915,13 +931,14 @@ footer{padding:var(--pad);display:flex;justify-content:space-between;align-items
   <p>Let's spend 30 minutes aligning on your vision. No commitment — just a conversation about where your brand is headed and how we can get you there.</p>
   <div class="cta-btns">
     <a href="https://wa.me/919811188831?text=Hi%2C%20I%20reviewed%20the%20White%20Mirage%20Studio%20proposal%20and%20would%20like%20to%20discuss%20further." class="cta-btn primary" target="_blank">↗ WhatsApp Us</a>
-    <a href="mailto:hello@whitemirage.com?subject=Proposal%20Discussion%20%E2%80%94%20Shawl%20Brand" class="cta-btn" target="_blank">Write to Us</a>
+    <a href="mailto:hello@whitemirage.com?subject=Proposal%20Discussion%20%E2%80%94%20Wrapover" class="cta-btn" target="_blank">Write to Us</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div>
+  <div class="footer-left">
+    <img src="logo.png" alt="White Mirage Studio" class="footer-logo" />
     <div class="footer-brand">White Mirage Studio</div>
     <div style="font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:.05em">Photography · Video · Website · Paid Campaigns</div>
   </div>
